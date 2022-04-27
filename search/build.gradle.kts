@@ -31,12 +31,6 @@ atomicfu {
     transformJvm = false
 }
 
-idea {
-    module {
-        excludeFile(file("static"))
-    }
-}
-
 configurations {
     all {
         exclude("log4j", "log4j")
@@ -66,16 +60,6 @@ kotlin {
 
 
             runTask {
-                devServer = devServer?.copy(
-                    port = 8088,
-                    proxy = mutableMapOf(
-                        "/api" to "http://localhost:8080",
-                        "/static" to "http://localhost:8080",
-                        "/login" to "http://localhost:8080",
-                        "/search" to "http://localhost:8080",
-                        "/auth" to "http://localhost:8080",
-                    )
-                )
                 outputFileName = "firmensuche.js"
             }
 
